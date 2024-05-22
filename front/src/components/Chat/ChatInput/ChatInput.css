@@ -1,0 +1,17 @@
+.chat-input-container{
+    border-radius: 10px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}   
+
+.chat-input{
+    font-size: 0.6em;
+    border-radius: 10px;
+    width: 60%;
+    min-height: 100%;
+}

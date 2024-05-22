@@ -16,6 +16,7 @@ export function Header() {
                         <li className='listItemStyle'><a href="/" className='headerNames'>Home</a></li>
                         <li className='listItemStyle'><a href="/" className='headerNames'>Alunos</a></li>
                         <li className='listItemStyle'><a href="/" className='headerNames'>Sobre</a></li>
+                        <li className='listItemStyle'><a href="/" className='headerNames'>Chat</a></li>
                     </ul>
                 </nav>
             </header>

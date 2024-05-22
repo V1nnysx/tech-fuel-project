@@ -1,5 +1,4 @@
 .Main-container-content {
-
     width: 100vw;
     height: 100%;
     display: flex;
@@ -11,8 +10,18 @@
 .Main-content {
     width: 90%;
     text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 .Main-content img {
     width: 25%;
+}
+
+.mid-section{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow-y: auto;
 }

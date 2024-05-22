@@ -6,14 +6,10 @@ import { Content } from './components/Content/Content'
 
 function App() {
   return (
-    <div className='main-container'>
-      <div>
-        <Header />
-      </div>
-      <div className='main-content'>
-        <Content />
-        <Footer />
-      </div>
+    <div className="full-section">
+      <Header />
+      <Content />
+      <Footer />
     </div>
   )
 }
