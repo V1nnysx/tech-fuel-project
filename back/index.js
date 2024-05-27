@@ -33,7 +33,7 @@ app.post('/api/gpt', async (req, res) => {
         };
         const response = await axios.post(apiUrl, payload, {
             headers: {
-                'Authorization': 'Bearer sk-proj-mJayJKI70TVw9mSbAHuyT3BlbkFJxeuL7TdaTKDkY9uYM0BC',
+                'Authorization': '',
                 'Content-Type': 'application/json'
             }
         }); 
