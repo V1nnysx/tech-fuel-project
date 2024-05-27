@@ -16,13 +16,25 @@ app.post('/api/gpt', async (req, res) => {
         choices: [
             {
                 message: {
-                    content: "Configure uma api key válida para utilizar a api da open ai"
+                    content: "Configure uma API Key válida para utilizar a API da Open AI."
                 }
             }
         ]
     };
 
-    /*
+    function mockErrorResponse(error) {
+        const response = {
+            choices: [
+                {
+                    message: {
+                        content: `Error: ${error}`
+                    }
+                }
+            ]
+        }
+        return response
+    }
+
     try {
         const apiUrl = 'https://api.openai.com/v1/chat/completions';
         const payload = {
@@ -33,16 +45,15 @@ app.post('/api/gpt', async (req, res) => {
         };
         const response = await axios.post(apiUrl, payload, {
             headers: {
-                'Authorization': '',
+                'Authorization': 'Bearer ',
                 'Content-Type': 'application/json'
             }
-        }); 
+        });
+        res.json(response);
     } catch (error) {
         console.error('Erro ao solicitar ao GPT:', error);
-        res.status(500).send('Erro ao solicitar ao GPT');
+        res.json(mockErrorResponse(error.response.data.error.message)).status(429)
     }
-    */
-    res.json(mockResponse);
 });
 
 app.listen(port, () => {
