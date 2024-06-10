@@ -1,26 +1,30 @@
-.ChatMessage{
+.ChatMessage {
     border-radius: 10px;
     background-color: #3f214d;
-    display:flex;
+    display: inline-block; /* Changed from flex to inline-block to allow natural width expansion */
     text-align: justify;
-    align-items: center;
-    flex-wrap: wrap;
     padding: 10px;
-    width: 45%;
+    width: auto; /* Auto width allows the div to expand to fit content */
+    max-width: 45%; /* Max width to prevent it from exceeding a certain size */
     font-size: 0.7em;
+    word-wrap: break-word; /* Ensures long words break and wrap correctly */
 }
 
-.message-container{
+.message-container {
     width: 100%;
     display: flex;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-.user{
+.user {
     justify-content: flex-end;
+    display: flex;
+    width: 100%;
 }
 
-.assistant{
-    align-self: flex-start;
+.assistant {
+    justify-content: flex-start;
+    display: flex;
+    width: 100%;
 }
