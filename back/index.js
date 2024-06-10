@@ -65,7 +65,7 @@ async function callGPT(prompt){
         };
         const response = await axios.post(apiUrl, payload, {
             headers: {
-                'Authorization': 'Bearer sk-proj-CYzQm2pHM65EAthVF0QXT3BlbkFJ5gCUjYSDBiq2ET3287tM',
+                'Authorization': '',
                 'Content-Type': 'application/json'
             }
         }); 
