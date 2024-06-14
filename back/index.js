@@ -19,10 +19,11 @@ const databaseConfig = {
     host: process.env.MYSQL_HOST,
     user: process.env.MYSQL_USER,
     password: process.env.MYSQL_PASSWD,
-    database: process.env.MYSQL_DATABASE
+    database: process.env.MYSQL_DATABASE,
+    port: process.env.MYSQL_PORT
 };
 
-function create_table(databaseConfig){
+function create_table(databaseConfig) {
     const mysql = require('mysql2')
 
     const connection = mysql.createConnection(databaseConfig);
@@ -41,8 +42,8 @@ function create_table(databaseConfig){
         console.log('Messages table created or already exists');
 
         connection.end((err) => {
-        if (err) {
-            console.error('Error closing the database connection:', err);
+            if (err) {
+                console.error('Error closing the database connection:', err);
             } else {
                 console.log('Database connection closed');
             }
@@ -54,7 +55,7 @@ create_table(databaseConfig);
 
 const message_service = new MessageService(new MessageRepository(databaseConfig))
 
-async function callGPT(prompt){
+async function callGPT(prompt) {
     try {
         const apiUrl = 'https://api.openai.com/v1/chat/completions';
         const payload = {
@@ -68,7 +69,7 @@ async function callGPT(prompt){
                 'Authorization': '',
                 'Content-Type': 'application/json'
             }
-        }); 
+        });
         return response.data
     } catch (error) {
         console.error('Erro ao solicitar ao GPT:', error);
@@ -76,16 +77,17 @@ async function callGPT(prompt){
     }
 }
 
-function error_response(error){
-    const response = { choices: [
-         {
-             message: {
-                 content: error
-             }
-         }
-     ]
- }
- return response
+function error_response(error) {
+    const response = {
+        choices: [
+            {
+                message: {
+                    content: error
+                }
+            }
+        ]
+    }
+    return response
 }
 
 app.post('/api/message', async (req, res) => {
