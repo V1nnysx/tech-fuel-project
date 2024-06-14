@@ -1,6 +1,7 @@
 .ChatMessage {
     border-radius: 10px;
     background-color: #3f214d;
+<<<<<<< HEAD
     display: inline-block;
     text-align: left;
     padding: 10px;
@@ -8,6 +9,15 @@
     max-width: 45%;
     font-size: 0.85em;
     word-wrap: break-word;
+=======
+    display: inline-block; /* Changed from flex to inline-block to allow natural width expansion */
+    text-align: justify;
+    padding: 10px;
+    width: auto; /* Auto width allows the div to expand to fit content */
+    max-width: 45%; /* Max width to prevent it from exceeding a certain size */
+    font-size: 0.7em;
+    word-wrap: break-word; /* Ensures long words break and wrap correctly */
+>>>>>>> feature/database
 }
 
 .message-container {
@@ -27,4 +37,8 @@
     justify-content: flex-start;
     display: flex;
     width: 100%;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> feature/database
