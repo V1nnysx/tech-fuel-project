@@ -29,7 +29,7 @@ function create_table(databaseConfig) {
     const connection = mysql.createConnection(databaseConfig);
     const createTableSql = `
             CREATE TABLE IF NOT EXISTS messages (
-                text VARCHAR(140),
+                text TEXT,
                 usertype VARCHAR(10),
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )
@@ -73,7 +73,7 @@ async function callGPT(prompt) {
         return response.data
     } catch (error) {
         console.error('Erro ao solicitar ao GPT:', error);
-        throw error
+        throw error.response.data.error.message
     }
 }
 
@@ -116,7 +116,10 @@ app.post('/api/message', async (req, res) => {
             }]
         }*/
     } catch (err) {
-        return res.status(429).json(error_response(err.response.data.error.message));
+        const error_message = await message_service.create_message(
+            new Message(err, 'assistant')
+        );
+        return res.status(429).json(error_response(err))
     }
 
     try {

@@ -43,6 +43,8 @@ export default function ChatContainer() {
             setMessages(prevMessages => [...prevMessages, assistantMessage]);
         } catch (error) {
             console.error('Erro ao solicitar ao GPT:', error);
+            const errorMessage = { text: error.response.data.choices[0].message.content.trim(), usertype: 'assistant' };
+            setMessages(prevMessages => [...prevMessages, errorMessage]);
         }
     };
 
